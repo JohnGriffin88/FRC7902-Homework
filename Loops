@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LoopExamples {
+public class Loops {
     public static void main(String[] args) {
         // Part 1
         int num = 5;
