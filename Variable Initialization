@@ -1,0 +1,6 @@
+1. double bankBalance = 0.0;
+2. int sumNaturals = 0;
+3. char letter = "A";
+4. String ROBOT_NAME = "Robot";
+5. double sphereVolume = 0.0;
+6. long neuronCount = 0;
