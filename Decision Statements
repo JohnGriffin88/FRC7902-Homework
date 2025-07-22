@@ -1,4 +1,4 @@
-import java.util.Scanner;
+```import java.util.Scanner;
 
 public class FruitDrinkStand {
     public static void main(String[] args) {
@@ -74,3 +74,4 @@ public class FruitDrinkStand {
         input.close();
     }
 }
+```
