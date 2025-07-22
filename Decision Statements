@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class FruitDrinkStand {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double total = 0.0;
+
+        System.out.print("Would you like to buy 'fruit' or a 'drink'? ");
+        String choice = input.nextLine().toLowerCase();
+
+        if (choice.equals("fruit")) {
+            // Ask for one fruit
+            System.out.println("Available fruits: apple, orange, pear, grape, mango");
+            System.out.print("Enter the fruit you want: ");
+            String fruit = input.nextLine().toLowerCase();
+
+            if (fruit.equals("apple")) {
+                System.out.println("Apple - $1.00");
+                total += 1.00;
+            } else if (fruit.equals("orange")) {
+                System.out.println("Orange - $2.00");
+                total += 2.00;
+            } else if (fruit.equals("pear")) {
+                System.out.println("Pear - $3.00");
+                total += 3.00;
+            } else if (fruit.equals("grape")) {
+                System.out.println("Grape - $4.00");
+                total += 4.00;
+            } else if (fruit.equals("mango")) {
+                System.out.println("Mango - $5.00");
+                total += 5.00;
+            } else {
+                System.out.println("We don't have that fruit.");
+            }
+
+        } else if (choice.equals("drink")) {
+            // Ask for one drink
+            System.out.println("Available drinks: water, orange juice, milkshake, pepsi, coke");
+            System.out.print("Enter your drink: ");
+            String drink = input.nextLine().toLowerCase();
+
+            switch (drink) {
+                case "water":
+                    System.out.println("Water - $1.00");
+                    total += 1.00;
+                    break;
+                case "orange juice":
+                    System.out.println("Orange Juice - $2.00");
+                    total += 2.00;
+                    break;
+                case "milkshake":
+                    System.out.println("Milkshake - $3.00");
+                    total += 3.00;
+                    break;
+                case "pepsi":
+                    System.out.println("Pepsi - $4.00");
+                    total += 4.00;
+                    break;
+                case "coke":
+                    System.out.println("Coke - $5.00");
+                    total += 5.00;
+                    break;
+                default:
+                    System.out.println("We don't have that drink.");
+            }
+        } else {
+            System.out.println("Please enter 'fruit' or 'drink'.");
+        }
+
+        if (total > 0) {
+            System.out.printf("Your total is: $%.2f%n", total);
+        }
+
+        input.close();
+    }
+}
