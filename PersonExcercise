@@ -1,0 +1,82 @@
+/*
+* Jonathan Guo
+* Firebirds U1 L2
+* 25/07/26
+*/
+
+import java.util.Scanner;
+
+public class PersonExercise {
+
+    public static void main(String[] args) {
+        // Creating objects
+        Person p1 = new Person("Jonathan", 30, 60000, 2000);
+        Person p2 = new Person("Jeffrey", 25, 50000, 1500);
+        Person p3 = new Person("Jason", 40, 100000, 4000);
+        Person p4 = new Person("Jake", 35, 85000, 2500);
+        Person p5 = new Person("Jaden", 28, 75000, 3000);
+
+        // Calling methods
+        p1.greeting();
+        p2.celebrateBirthday();
+        p3.work();
+        System.out.println("Jonathan's net worth: $" + p1.calculateNetWorth());
+        System.out.println();
+
+        // Random relationship
+        determineRelationship(p1, p2);
+        determineRelationship(p3, p4);
+        determineRelationship(p4, p5);
+    }
+
+    // Static method that takes two objects and outputs a random relationship
+    public static void determineRelationship(Person p1, Person p2) {
+        String[] relations = {"friends", "colleagues", "enemies", "siblings", "partners"};
+        int index = (int) (Math.random() * relations.length);
+        System.out.println(p1.name + " and " + p2.name + " are " + relations[index]);
+    }
+}
+
+class Person {
+    // Class variables
+    String name;
+    int age;
+    double netIncome;
+    double annualSalary;
+    double monthlySpending;
+
+    // Constructor
+    public Person(String name, int age, double annualSalary, double monthlySpending) {
+        this.name = name;
+        this.age = age;
+        this.annualSalary = annualSalary;
+        this.monthlySpending = monthlySpending;
+        this.netIncome = 0.0;
+    }
+
+    // Method 1
+    public void greeting() {
+        String greeting = "Hello, my name is " + name + " and I am " + age + " years old.";
+        System.out.println(greeting);
+    }
+
+    // Method 2
+    public void celebrateBirthday() {
+        age++; // increases age
+        String msg = name + " is now " + age + " years old. Happy Birthday!";
+        System.out.println(msg);
+    }
+
+    // Method 3
+    public void work() {
+        netIncome += 1000; // Earn money
+        System.out.println(name + " worked and earned $1000. Total net income: $" + netIncome);
+    }
+
+    // Bonus Method
+    public double calculateNetWorth() {
+        double yearlySpending = monthlySpending * 12;
+        double netWorth = annualSalary - yearlySpending + netIncome;
+        return netWorth;
+    }
+}
