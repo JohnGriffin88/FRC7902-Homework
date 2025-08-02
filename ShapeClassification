@@ -1,0 +1,103 @@
+public class ShapeClassification {
+    public static void main(String[] args) {
+        Triangle triangle = new Triangle();
+        System.out.println("Triangle Area: " + triangle.areaTriangle(6, 4));
+        System.out.println("Triangle Perimeter: " + triangle.perimeter(3, 4, 5));
+        System.out.println("Triangle Volume: " + triangle.volume(12.0, false));
+
+        Cube cube = new Cube();
+        System.out.println("Cube Area: " + cube.areaCube(3.0, false));
+        System.out.println("Cube Volume: " + cube.volumeCube(3.0, true));
+
+        Rectangle rect = new Rectangle();
+        System.out.println("Rectangle Area: " + rect.areaRectangle(5, 7));
+        System.out.println("Rectangle Volume: " + rect.volume(35, true));
+
+        BaseShape helper = new BaseShape();
+        System.out.println("Missing angle in degrees: " + helper.missingAngle(70, 60));
+        System.out.println("Missing angle in radians: " + helper.missingAngle(Math.PI / 3, Math.PI / 6));
+    }
+}
+
+class BaseShape {
+    // Area methods
+    public double areaCube(double side, boolean isCube) {
+        if (isCube) {
+            return 6 * side * side;
+        } else {
+            return side * side;
+        }
+    }
+
+    public double areaRectangle(double length, double width) {
+        return length * width;
+    }
+
+    public double areaTriangle(double base, double height) {
+        return (base * height) / 2;
+    }
+
+    public double areaCircle(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // Perimeter methods
+    public double perimeter(double side) {
+        return 4 * side;
+    }
+
+    public double perimeter(double length, double width) {
+        return 2 * (length + width);
+    }
+
+    public double perimeter(double a, double b, double c) {
+        return a + b + c;
+    }
+
+    public double perimeter(double radius, boolean isCircle) {
+        if (isCircle) {
+            return 2 * Math.PI * radius;
+        }
+        return 0;
+    }
+
+    // Volume methods
+    public double volume(double area, boolean isPrism) {
+        if (isPrism) {
+            return area * 10;
+        } else {
+            return (1.0 / 3) * area * 10;
+        }
+    }
+
+    public double volumeCube(double side, boolean isCube) {
+        if (isCube) {
+            return side * side * side;
+        }
+        return 0;
+    }
+
+    // Angle calculations
+    public double missingAngle(int angleA, int angleB) {
+        return 180 - (angleA + angleB);
+    }
+
+    public double missingAngle(double angleA, double angleB) {
+        return Math.PI - (angleA + angleB);
+    }
+}
+
+class Triangle extends BaseShape {}
+class RightTriangle extends Triangle {}
+class AcuteTriangle extends Triangle {}
+class ObtuseTriangle extends Triangle {}
+
+class Rectangle extends BaseShape {}
+class Square extends Rectangle {}
+class Trapezoid extends Rectangle {}
+class Parallelogram extends Rectangle {}
+class Rhombus extends Rectangle {}
+class Kite extends Rectangle {}
+
+class Circle extends BaseShape {}
+class Cube extends Square {}
